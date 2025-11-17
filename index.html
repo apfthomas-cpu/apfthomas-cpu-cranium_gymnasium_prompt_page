@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Name Prompt</title>
+<style>
+    /* Full-screen background and centering */
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+
+        /* Full-screen background image */
+        background: url('Background.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    /* Centered box */
+    .name-box {
+        width: 90%;
+        max-width: 400px;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 12        text-align: center;
+        color: #fff;
+        box-shadow: 0 0 20px rgba(0,0,0,0.6);
+
+        /* Flexbox inside the box for vertical alignment */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .name-box h2 {
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+    }
+
+    .name-box input {
+        padding: 10px;
+        width: 80%;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        text-align: center;
+    }
+
+    .name-box button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: #0078D7;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .name-box button:hover {
+        background-color: #005fa3;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+        .name-box h2 {
+            font-size: 1.2rem;
+        }
+        .name-box input, .name-box button {
+            font-size: 0.9rem;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="name-box">
+        <h2>Enter Your Name</h2>
+        <input type="text" id="username" placeholder="Your name">
+        <button onclick="redirectUser()">Submit</button>
+    </div>
+
+<script>
+    function redirectUser() {
+        const name = document.getElementById('username').value.trim();
+        if (name === "") {
+            alert("Please enter your name before continuing.");
+            return;
+        }
+        // Redirect to the new page
+        window.location.href = "https://apfthomas-cpu.github.io/scrolling_text_exercise/";
+    }
+</script>
+</body>
+</html>
