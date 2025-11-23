@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Final Results</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: url('Background.jpg') no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+        overflow-x: hidden;
+    }
+
+    .results-box {
+        background: rgba(255,255,255,0.85);
+        backdrop-filter: blur(12px);
+        padding: 32px 26px 36px;
+        border-radius: 25px;
+        width: 95%;
+        max-width: 580px;
+        text-align: center;
+        box-shadow: 0 12px 34px rgba(0,0,0,0.25);
+        animation: fadeIn 0.9s ease forwards;
+    }
+
+    h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 30px;
+        margin-bottom: 8px;
+    }
+
+    .greeting {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 12px;
+    }
+
+    /* Medal styles */
+    .medal-badge {
+        display: inline-block;
+        margin-top: 6px;
+        margin-bottom: 10px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        color: #fff;
+        font-weight: 600;
+        font-size: 14px;
+    }
+    .medal-gold { background: linear-gradient(135deg,#ffd700,#f2a900); }
+    .medal-silver { background: linear-gradient(135deg,#c0c0c0,#8f8f8f); }
+    .medal-bronze { background: linear-gradient(135deg,#cd7f32,#a05a2a); }
+    .medal-none { background:#555; }
+
+    .score-card {
+        background: white;
+        padding: 14px;
+        margin: 12px 0;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        opacity: 0;
+        transform: translateY(20px);
+        animation: slideUp 0.7s ease forwards;
+        text-align: left;
+        font-size: 14px;
+    }
+
+    .score-card:nth-of-type(1) { animation-delay: 0.2s; }
+    .score-card:nth-of-type(2) { animation-delay: 0.3s; }
+    .score-card:nth-of-type(3) { animation-delay: 0.4s; }
+    .score-card:nth-of-type(4) { animation-delay: 0.5s; }
+
+    .score-title { font-weight: 600; font-size: 17px; }
+    .exercise-type { font-size: 13px; opacity: 0.8; margin-bottom: 6px; }
+
+    .practice-btn {
+        margin-top: 8px;
+        padding: 8px 16px;
+        background: #2d2d2d;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 13px;
+        transition: 0.2s ease;
+    }
+    .practice-btn:hover {
+        transform: scale(1.03);
+        opacity: 0.85;
+    }
+
+    .total-score {
+        margin-top: 20px;
+        font-size: 22px;
+        font-weight: 700;
+        opacity: 0;
+        animation: popIn 1s ease forwards;
+        animation-delay: 0.9s;
+    }
+
+    .restart-btn {
+        margin-top: 24px;
+        padding: 12px 24px;
+        font-size: 16px;
+        border: none;
+        border-radius: 12px;
+        background: #2d2d2d;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .restart-btn:hover {
+        opacity: 0.8;
+        transform: scale(1.03);
+    }
+
+    /* Confetti */
+    .confetti {
+        position: fixed;
+        width: 8px;
+        height: 14px;
+        top: -10px;
+        background: red;
+        opacity: 0.9;
+        border-radius: 2px;
+        animation: fall 3s linear forwards;
+        pointer-events: none;
+    }
+
+    @keyframes fall {
+        0% { transform: translateY(-10px) rotate(0deg); }
+        100% { transform: translateY(110vh) rotate(360deg); }
+    }
+
+    @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+    @keyframes slideUp { to {opacity:1; transform:translateY(0);} }
+    @keyframes popIn { from {opacity:0; transform:scale(0.5);} to {opacity:1; transform:scale(1);} }
+
+</style>
+</head>
+
+<body>
+
+<div class="results-box">
+    <h1>Final Results</h1>
+
+    <!-- Student Name -->
+    <div id="greeting" class="greeting"></div>
+
+    <!-- Medal -->
+    <div id="medal-area">
+        <div id="medal-badge" class="medal-badge"></div>
+        <div id="medal-text"></div>
+    </div>
+
+    <!-- Section Cards -->
+    <div class="score-card">
+        <div class="score-title">Section 1: Scrolling Text</div>
+        <div class="exercise-type">Reading & Error Identification</div>
+        Score: <span id="s1">0</span> / 35
+        <br>
+        <button class="practice-btn" onclick="window.location.href='https://apfthomas-cpu.github.io/cranium_gymnasium_scrolling_text/'">
+            Practice Again
+        </button>
+    </div>
+
+    <div class="score-card">
+        <div class="score-title">Section 2: True/False</div>
+        <div class="exercise-type">Logic & Quick Response</div>
+        Score: <span id="s2">0</span> / 10
+        <br>
+        <button class="practice-btn" onclick="window.location.href='https://apfthomas-cpu.github.io/cranium_gymnasium_section2/'">
+            Practice Again
+        </button>
+    </div>
+
+    <div class="score-card">
+        <div class="score-title">Section 3: Algebra</div>
+        <div class="exercise-type">Problem Solving</div>
+        Score: <span id="s3">0</span> / 12
+        <br>
+        <button class="practice-btn" onclick="window.location.href='https://apfthomas-cpu.github.io/cranium_gymnasium_algebra/'">
+            Practice Again
+        </button>
+    </div>
+
+    <div class="score-card">
+        <div class="score-title">Section 4: Challenge</div>
+        <div class="exercise-type">Mixed Skills</div>
+        Score: <span id="s4">0</span> / 10
+        <br>
+        <button class="practice-btn" onclick="window.location.href='https://apfthomas-cpu.github.io/cranium_gymnasium_section4/'">
+            Practice Again
+        </button>
+    </div>
+
+    <div class="total-score">
+        Total Score: <span id="total">0</span> / 67
+    </div>
+
+    <button class="restart-btn"
+        onclick="window.location.href='https://apfthomas-cpu.github.io/apfthomas-cpu-cranium_gymnasium_prompt_page/'">
+        Restart
+    </button>
+</div>
+
+<script>
+/* ----------------------------
+   LOAD STUDENT NAME
+---------------------------- */
+const studentName = localStorage.getItem("studentName") || "Student";
+document.getElementById("greeting").textContent = "Well done, " + studentName + "!";
+
+/* ----------------------------
+   LOAD SCORES
+---------------------------- */
+const s1 = Number(localStorage.getItem("section1_score")) || 0;
+const s2 = Number(localStorage.getItem("section2_score")) || 0;
+const s3 = Number(localStorage.getItem("section3_score")) || 0;
+const s4 = Number(localStorage.getItem("section4_score")) || 0;
+
+document.getElementById("s1").textContent = s1;
+document.getElementById("s2").textContent = s2;
+document.getElementById("s3").textContent = s3;
+document.getElementById("s4").textContent = s4;
+
+/* ----------------------------
+   TOTAL + MEDAL
+---------------------------- */
+const total = s1 + s2 + s3 + s4;
+document.getElementById("total").textContent = total;
+
+const percent = (total / 67) * 100;
+
+let medalClass = "";
+let medalText = "";
+
+if (percent >= 85) {
+    medalClass = "medal-gold";
+    medalText = "🥇 Gold – Outstanding performance!";
+} else if (percent >= 60) {
+    medalClass = "medal-silver";
+    medalText = "🥈 Silver – Great job!";
+} else if (percent >= 30) {
+    medalClass = "medal-bronze";
+    medalText = "🥉 Bronze – Good effort!";
+} else {
+    medalClass = "medal-none";
+    medalText = "Keep practising! You can do it!";
+}
+
+document.getElementById("medal-badge").classList.add(medalClass);
+document.getElementById("medal-badge").textContent = medalText.split("–")[0].trim();
+document.getElementById("medal-text").textContent = medalText;
+
+/* ----------------------------
+   CONFETTI
+---------------------------- */
+function confettiBurst() {
+    for (let i = 0; i < 140; i++) {
+        let conf = document.createElement("div");
+        conf.classList.add("confetti");
+        conf.style.left = Math.random() * 100 + "vw";
+        conf.style.background = `hsl(${Math.random()*360}, 90%, 55%)`;
+        conf.style.animationDuration = (Math.random()*2 + 2) + "s";
+        document.body.appendChild(conf);
+
+        setTimeout(() => conf.remove(), 3000);
+    }
+}
+confettiBurst();
+
+</script>
+
+</body>
+</html>
